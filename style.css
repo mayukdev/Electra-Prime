@@ -1,0 +1,275 @@
+/* General Styles */
+
+  {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+  background: black;
+  color: white;
+  text-align: center;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #121212;
+}
+
+h1 {
+  font-size: 28px;
+  color: white;
+}
+
+.menu {
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Welcome Section */
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.welcome h1 {
+  font-size: 36px;
+  color: red;
+}
+
+.welcome p {
+  font-size: 18px;
+  margin: 10px 0;
+  color: white;
+}
+
+.download-btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  background: red;
+  border: none;
+  cursor: pointer;
+  color: white;
+  margin-top: 20px;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.download-btn:hover {
+  background: darkred;
+}
+
+/* Image Section */
+.image-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 40px 0;
+}
+
+/* Image Sizes for Consistency */
+.image-section img,
+.trending-images img {
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Responsive Image Sizes */
+@media (max-width: 767px) {
+  .image-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-items: center;
+  }
+  
+  .image-section img,
+  .trending-images img {
+    width: 100px;
+    height: 150px;
+  }
+  
+}
+
+/* Trending Movies Section */
+.trending {
+  margin-top: 60px;
+}
+
+.trending h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: red;
+}
+
+.trending p {
+  font-size: 18px;
+  color: white;
+}
+
+/* Trending Images Section */
+.trending-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+/* WHY WE ARE THE BEST Section */
+.best-section {
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.best-section h2 {
+  font-size: 26px;
+  color: red;
+}
+
+.best-section p {
+  font-size: 18px;
+  color: white;
+  margin-top: 10px;
+}
+
+/* 🔥 Features Section */
+.features-section {
+  margin-top: 50px;
+  padding: 30px;
+  text-align: center;
+  background: #121212;
+  border-radius: 10px;
+  border: 2px solid red;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.features-section h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: red;
+  text-transform: uppercase;
+}
+
+.features-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.features-box p {
+  font-size: 16px;
+  background: rgba(255, 0, 0, 0.2);
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: white;
+}
+
+/* Footer */
+.footer {
+  margin-top: 80px;
+  padding: 20px;
+  background: #121212;
+  text-align: center;
+  border-top: 2px solid red;
+}
+
+.footer-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: blue;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 0 15px;
+}
+
+.footer-links a:hover {
+  color: red;
+}
+
+.footer-bottom {
+  margin-top: 15px;
+  font-size: 14px;
+  color: gray;
+}
+
+/* Dropdown Menu Styles */
+.menu {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #121212;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.menu:hover .dropdown-content {
+  display: block;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+.movie-item img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.movie-item button {
+    display: block;
+    margin: 5px auto;
+    padding: 5px;
+}

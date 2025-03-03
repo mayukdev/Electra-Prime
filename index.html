@@ -1,0 +1,97 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Electra Prime</title>  
+    <link rel="stylesheet" href="style.css">  
+</head>  
+<body>  
+    <!-- Header -->  
+    <header>  
+        <h1>Electra Prime</h1>  
+        <div class="menu">&#9776;  
+            <!-- Hamburger Menu Dropdown -->  
+            <div class="dropdown-content">  
+                <a href="home.html">Home</a>  
+                <a href="about.html">About</a>  
+                <a href="contact.html">Contact Us</a>  
+                <a href="privacy.html">Privacy Policy</a>  
+                <a href="https://mayukdev.github.io/ElectraCompany/">Electra Company</a>  
+            </div>  
+        </div>  
+    </header>  
+
+    <!-- Welcome Section -->  
+    <div class="welcome-container">  
+        <section class="welcome">  
+            <h1>Welcome to Electra Prime</h1>  
+            <p>A Beta Test Website By Electra Company Where You Can Download Paid Movies For Free Without Any Login And Enjoy Your Time.</p>  
+            <button class="download-btn" onclick="redirectToHome()">Try Now (Beta)</button>  
+        </section>  
+
+        <!-- Normal Images Section -->  
+        <section class="image-section">  
+            <img src="images/img1.jpg" alt="Image 1">  
+            <img src="images/img2.jpg" alt="Image 2">  
+            <img src="images/img3.jpg" alt="Image 3">  
+            <img src="images/img4.jpg" alt="Image 4">  
+            <img src="images/img5.jpg" alt="Image 5">  
+            <img src="images/img6.jpg" alt="Image 6">  
+        </section>  
+    </div>  
+
+    <!-- Trending Movies Section -->  
+    <section class="trending">  
+        <h2>Top Trending Movies</h2>  
+        <p>Todays Top Trending Movies New Releases Movies Bollywood / Hollywood / Tollywood </p>  
+    </section>  
+
+    <!-- Trending Movie Images (Uploaded by Admin) -->  
+    <div class="trending-images" id="trendingImages">  
+        <!-- Images will be loaded dynamically from localStorage -->  
+    </div>  
+
+    <!-- WHY WE ARE THE BEST Section -->  
+    <section class="best-section">  
+        <h2>WHY WE ARE THE BEST</h2>  
+        <p>We provide the best quality movies with direct download links and a smooth interface.</p>  
+    </section>  
+
+    <!-- 🔥 Aesthetic Features Section -->  
+    <section class="features-section">  
+        <h2>What Makes Us Unique?</h2>  
+        <div class="features-box">  
+            <p>✅ No Login Required</p>  
+            <p>✅ No Credit Needed</p>  
+            <p>✅ No Ads</p>  
+            <p>✅ No Extra Subscription</p>  
+            <p>✅ 24/7 Support</p>  
+            <p>✅ No 18+ Content</p>  
+            <p>✅ No Harmful Ads</p>  
+            <p>✅ Direct Download Links</p>  
+            <p>✅ High-Quality Streaming</p>  
+            <p>✅ Mobile-Friendly & Smooth Interface</p>  
+            <p>✅ Safe & Secure Platform</p>  
+        </div>  
+    </section>  
+
+    <!-- Footer -->  
+    <footer class="footer">  
+        <p class="footer-title"><u>Electra Prime</u></p>  
+        <div class="footer-links">  
+            <a href="help.html">Our Help Centre</a>  
+            <a href="about.html">About Us</a>  
+        </div>  
+        <p class="footer-bottom">© Made By Official Dev Of Electra Mayuk.</p>  
+    </footer>  
+
+    <script>
+        function redirectToHome() {
+            window.location.href = "home.html";
+        }
+    </script>
+
+    <script src="script.js"></script>  
+</body>  
+</html>

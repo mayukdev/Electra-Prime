@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electra Prime - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        h1 {
+            font-size: 32px;
+            margin-top: 20px;
+        }
+        .search-bar {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            margin: 20px auto;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+        }
+        .content {
+            flex: 1;
+            padding-bottom: 20px;
+        }
+        .movies-container {
+            display: grid;
+            gap: 10px;
+            padding: 20px;
+        }
+        @media (min-width: 768px) {
+            .movies-container {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+        @media (max-width: 767px) {
+            .movies-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .movie-card {
+            position: relative;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .movie-card:hover {
+            opacity: 0.8;
+        }
+        .movie-card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .movie-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 0 0 5px 5px;
+        }
+        .footer {
+            padding: 15px;
+            background: #111;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            position: relative;
+        }
+        .back-text {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #ffcc00;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: rgba(255, 204, 0, 0.1);
+        }
+        .back-text:hover {
+            background: rgba(255, 204, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Electra Prime</h1>
+
+    <div class="content">
+        <input type="text" class="search-bar" id="search" placeholder="Search movies...">
+        <h2>MOVIES</h2>
+        <div class="movies-container" id="moviesContainer">
+            <!-- Movies will be loaded dynamically -->
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Electra Prime. All Rights Reserved.</p>
+        <span class="back-text" onclick="goBack()">Back</span>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const moviesContainer = document.getElementById("moviesContainer");
+            const search = document.getElementById("search");
+
+            function loadMovies() {
+                const movies = JSON.parse(localStorage.getItem("movies")) || [];
+                moviesContainer.innerHTML = movies.map((movie, index) => `
+                    <div class="movie-card" onclick="openGig(${index})">
+                        <img src="${movie.poster}" alt="${movie.title}">
+                        <div class="movie-title">${movie.title}</div>
+                    </div>
+                `).join("");
+            }
+
+            search.addEventListener("input", function () {
+                const query = search.value.toLowerCase();
+                const movies = JSON.parse(localStorage.getItem("movies")) || [];
+                const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(query));
+                moviesContainer.innerHTML = filteredMovies.map((movie, index) => `
+                    <div class="movie-card" onclick="openGig(${index})">
+                        <img src="${movie.poster}" alt="${movie.title}">
+                        <div class="movie-title">${movie.title}</div>
+                    </div>
+                `).join("");
+            });
+
+            window.openGig = function (index) {
+                localStorage.setItem("selectedMovie", index);
+                window.location.href = "gig.html";
+            };
+
+            loadMovies();
+        });
+
+        function goBack() {
+            window.location.href = "index.html";
+        }
+
+        // Visitor Tracking Script
+        document.addEventListener("DOMContentLoaded", function () {
+            let visitors = localStorage.getItem("home_visitors") || 0;
+            let totalTime = parseInt(localStorage.getItem("total_time_spent")) || 0;
+            let sessionStartTime = Date.now();
+
+            // Increase visitor count if new visit
+            if (!sessionStorage.getItem("visited_home")) {
+                visitors++;
+                localStorage.setItem("home_visitors", visitors);
+                sessionStorage.setItem("visited_home", "true");
+            }
+
+            // Track session time
+            window.addEventListener("beforeunload", function () {
+                let sessionTime = Math.floor((Date.now() - sessionStartTime) / 1000);
+                totalTime += sessionTime;
+                localStorage.setItem("total_time_spent", totalTime);
+            });
+        });
+    </script>
+
+</body>
+</html>
